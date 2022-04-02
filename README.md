@@ -1,1 +1,1 @@
-# codelinc-hackathon-2022
+# Codelinc Hackathon 2022
