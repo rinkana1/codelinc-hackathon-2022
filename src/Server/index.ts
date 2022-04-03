@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 app.use(bodyParser.json());
+app.use(express.static('public'))
+app.use(express.static('files'))
 const port = 8080
 
 
@@ -17,34 +19,40 @@ class Server {
 
     public async init() {
         app.get('/', (req: any, res: any) => {
-            res.send('Hello World')
+            res.sendFile(path.join(__dirname+'/..'+'/index.html'));
         })
 
         app.get('/userdata/:user', async (req: any, res: any) => {
-            const userID = req.params.user;
-            let data: string;
+            //const userID = req.params.user;
+            //let data: string;
 
             try {
-                data = await (this.commands.get('getuserdata') as Command).run([userID]);
+                //data = await (this.commands.get('getuserdata') as Command).run([userID]);
             } catch (err) {
                 console.error(err)
             }
 
-            res.send(data)
+            res.sendFile(__dirname+"/profile.html")
         })
 
         app.get('/jobposting', async (req: any, res: any) => {
-            let query = req.query.tags;
-            query = query.split(',')
-            let data: string;
+            //let query = req.query.tags;
+            //query = query.split(',')
+            //let data: string;
 
             try {
-                data = await (this.commands.get('getjobdata') as Command).run(query)
+                //data = await (this.commands.get('getjobdata') as Command).run(query)
             } catch (err) {
                 console.error(err)
             }
+            
+            res.sendFile(__dirname+'/jobposting.html');
+        })
 
-            res.send(data);
+        app.get('/company/:comp', async (req:any, res:any) => {
+            const company = req.params.comp;
+
+            res.sendFile(__dirname + `/${company}.html`)
         })
 
         app.post('/quizresults', (req: any, res: any) => {

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+    margin-top:20px;
+    color: #1a202c;
+    text-align: left;
+    background-color: #e2e8f0;    
+}
+.main-body {
+    padding: 15px;
+}
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+</style>
+<body>
+    <button onclick='submit()'>Submit</button>
+    <div id="profile"></div>
+</body>
+<script>
+    function submit() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+       document.getElementById("profile").innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:8080/userdata/5215495041887563", true);
+        xhttp.send();
+    }
+    function submit2() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log('print')
+       // Typical action to be performed when the document is ready:
+       document.getElementById("profile").innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:8080/jobposting?tags=full-stack", true);
+        xhttp.send();
+    }
+    function google() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log('print')
+       // Typical action to be performed when the document is ready:
+       document.getElementById("profile").innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:8080/company/google", true);
+        xhttp.send();
+    }
+    function microsoft() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log('print')
+       // Typical action to be performed when the document is ready:
+       document.getElementById("profile").innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:8080/company/microsoft", true);
+        xhttp.send();
+    }
+    function lincoln() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log('print')
+       // Typical action to be performed when the document is ready:
+       document.getElementById("profile").innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:8080/company/lincoln", true);
+        xhttp.send();
+    }
+    function linkedin() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log('print')
+       // Typical action to be performed when the document is ready:
+       document.getElementById("profile").innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:8080/company/linkedin", true);
+        xhttp.send();
+    }
+    function facebook() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log('print')
+       // Typical action to be performed when the document is ready:
+       document.getElementById("profile").innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:8080/company/facebook", true);
+        xhttp.send();
+    }
+    function amazon() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log('print')
+       // Typical action to be performed when the document is ready:
+       document.getElementById("profile").innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:8080/company/amazon", true);
+        xhttp.send();
+    }
+</script>
+</html>
