@@ -4,7 +4,7 @@
             "id": 6665819817953215,
             "compname": "Lincoln Financial Group, the best company in the world",
             "jobname": "Data Analyst",
-            "tags": ["javascript","css","full-stack"],
+            "tags": ["cpp", "python", "back-end", "full-stack", "data-analyst"],
             "location": "Baltimore, MD",
             "rating": 5.0,
             "quizlink": "http://quizlink.com/urmom"
@@ -13,7 +13,7 @@
             "id": 1400409535944782,
             "compname": "Microsoft",
             "jobname": "Front End Developer",
-            "tags": ["javascript","css","full-stack"],
+            "tags": ["javascript","html","css","front-end","full-stack"],
             "location": "Baltimore, MD",
             "rating": 4.2,
             "quizlink": "http://quizlink.com/urmom"
@@ -22,7 +22,7 @@
             "id": 9465315487594851,
             "compname": "Amazon",
             "jobname": "Full Stack Developer",
-            "tags": ["javascript","css","full-stack"],
+            "tags": ["typescript","javascript","html","css","full-stack"],
             "location": "Essex, MD",
             "rating": 3.5,
             "quizlink": "http://quizlink.com/urmom"
@@ -31,7 +31,7 @@
             "id": 3491657621954821,
             "compname": "Google",
             "jobname": "Software Engineer",
-            "tags": ["javascript","css","full-stack"],
+            "tags": ["python","css","software-engineer"],
             "location": "Washington, D.C.",
             "rating": 2.9,
             "quizlink": "http://quizlink.com/urmom"
@@ -40,7 +40,7 @@
             "id": 9192982965992987,
             "compname": "Facebook",
             "jobname": "UI/UX Designer",
-            "tags": ["javascript","css","full-stack"],
+            "tags": ["html","css","front-end","ux-ui"],
             "location": "Brooklyn, NY",
             "rating": 2.3,
             "quizlink": "http://quizlink.com/urmom"
@@ -49,7 +49,7 @@
             "id": 9948152466749514,
             "compname": "LinkedIn",
             "jobname": "Recruiting Coordinator",
-            "tags": ["javascript","css","full-stack"],
+            "tags": ["recruiting","no-code","interviews"],
             "location": "Harrisburg, PA",
             "rating": 1.4,
             "quizlink": "http://quizlink.com/urmom"

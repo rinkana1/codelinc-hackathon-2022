@@ -1,12 +1,10 @@
 import { Command } from '../Interfaces';
 import * as path from 'path';
 import { readdirSync } from 'fs';
-import * as custom from 'events';
 import * as readline from 'readline';
 import { stdin, stdout } from 'process';
 const bodyParser = require('body-parser');
 const express = require('express');
-const server = new custom.EventEmitter();
 const app = express();
 app.use(bodyParser.json());
 const port = 8080
@@ -51,6 +49,14 @@ class Server {
 
         app.post('/quizresults', (req: any, res: any) => {
             console.log(req.body);
+            const score = req.body;
+            
+            try {
+                (this.commands.get('updatescores') as Command).run([score.user, score.score])
+            } catch (err) {
+                if (err) throw err;
+            }
+
             res.status(200);
             res.send();
         })
@@ -80,20 +86,6 @@ class Server {
                     console.log(`Failed to load command ${commandPath}/${dir}/${file}.`);
                     console.error(err);
                 }
-            }
-        })
-
-        // Events
-        const eventPath = path.join(__dirname, "..", "Events");
-        readdirSync(eventPath).forEach(async (file) => {
-            try{
-                const { event } = await import(`${eventPath}/${file}`);
-                this.events.set(event.name, event)
-                console.log(`Loaded event "${event.name}" (${eventPath}/${file})`)
-                server.on(event.name, event.run.bind(null, this));
-            } catch (err:any) {
-                console.log(`Failed to load command ${eventPath}/${file}.`);
-                console.error(err);
             }
         })
     }
