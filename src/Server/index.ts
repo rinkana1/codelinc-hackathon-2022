@@ -1,24 +1,63 @@
 import { Command } from '../Interfaces';
 import * as path from 'path';
-import * as http from 'http';
 import { readdirSync } from 'fs';
 import * as custom from 'events';
 import * as readline from 'readline';
 import { stdin, stdout } from 'process';
+const bodyParser = require('body-parser');
+const express = require('express');
 const server = new custom.EventEmitter();
+const app = express();
+app.use(bodyParser.json());
+const port = 8080
 
 
 class Server {
     public commands: Map<string, Command> = new Map();
     public aliases: Map<string, Command> = new Map();
     public events: Map<string, Event> = new Map();
-    public srvr: any;
 
     public async init() {
-        this.srvr = http.createServer(function (req, res) {
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.end('Hello World!');
-          }).listen(8090);
+        app.get('/', (req: any, res: any) => {
+            res.send('Hello World')
+        })
+
+        app.get('/userdata/:user', async (req: any, res: any) => {
+            const userID = req.params.user;
+            let data: string;
+
+            try {
+                data = await (this.commands.get('getuserdata') as Command).run([userID]);
+            } catch (err) {
+                console.error(err)
+            }
+
+            res.send(data)
+        })
+
+        app.get('/jobposting', async (req: any, res: any) => {
+            let query = req.query.tags;
+            query = query.split(',')
+            let data: string;
+
+            try {
+                data = await (this.commands.get('getjobdata') as Command).run(query)
+            } catch (err) {
+                console.error(err)
+            }
+
+            res.send(data);
+        })
+
+        app.post('/quizresults', (req: any, res: any) => {
+            console.log(req.body);
+            res.status(200);
+            res.send();
+        })
+
+        app.listen(port, () => {
+            console.log(`App listening on port ${port}`)
+        })
 
         // Commands
         const commandPath = path.join(__dirname, "..", "Commands");
@@ -57,8 +96,6 @@ class Server {
                 console.error(err);
             }
         })
-
-        this.enterCommand();
     }
 
     enterCommand() {
@@ -86,10 +123,6 @@ class Server {
             rl.close()
         })
         rl.on('close', () => this.enterCommand());
-    }
-
-    closeServer() {
-        this.srvr.close();
     }
 }
 

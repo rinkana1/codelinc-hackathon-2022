@@ -1,0 +1,21 @@
+{
+    "users": [
+        {
+            "id": 5215495041887563,
+            "username": "johndoe13",
+            "email": "johndoe13@email.com",
+            "phone": "098-765-4321",
+            "mobile": "123-456-7890",
+            "name": "John Doe",
+            "address": "123 Sesame Street, Elmoville, PBS",
+            "aboutme": "Graduate from Morgan State University\nFront End Developer\nGraduated with 3.75 GPA\nCertified in Microsoft Word, Data Analytics, and Cybersecurity",
+            "tags": ["full-stack","javascript","html","css"],
+            "website": "https://randomwebsite.com",
+            "github": "https://github.com/johndoe13",
+            "twitter": "https://twitter.com/johndoe13",
+            "instagram": "https://instagram.com/johndoe13",
+            "facebook": "https://facebook.com/John-Doe",
+            "rating": 4.2
+        }
+    ]
+}
